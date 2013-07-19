@@ -1,0 +1,17 @@
+
+<% if @errors %>
+<% @errors.each do |error_message| %>
+<p><%=error_message %></p>
+<% end %>
+<% end %>
+
+
+
+<h1>Join us. Test your knowledge.</h1>
+
+<form name="create_new_user" action="/create_new_user" method="post">
+  Your name: <input type="text" name="user[full_name]" placeholder="ie. John Doe">
+  Your email: <input type="text" name="user[email]" placeholder="abc@gmail.com">
+  Your password: <input type="password" name="user[password_hash]">
+  <input type="submit" value="Let's go!">
+</form>
