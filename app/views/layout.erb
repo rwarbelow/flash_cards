@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -10,14 +11,34 @@
   <!--
     application.css is where you put your styles
   -->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
   <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+
+<!-- purecss.io -->
+   <script src="http://use.typekit.net/ajf8ggy.js"></script>
+   <script>
+       try { Typekit.load(); } catch (e) {}
+   </script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Flash Cards by RAD</title>
 </head>
 <body>
+
   <%= yield %>
+
+<script src="http://yui.yahooapis.com/3.10.1/build/yui/yui-min.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
 </body>
 </html>
