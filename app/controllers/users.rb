@@ -8,6 +8,7 @@ post '/create_new_user' do
   @user = User.new(params[:user])
 
   if @user.save
+    session[:user_id] = @user.id
     redirect "/user_profile/#{@user.id}"
   else
     @errors = @user.errors.full_messages
@@ -27,3 +28,6 @@ get '/user_profile/:user_id' do
   end
   
 end
+
+
+#need
