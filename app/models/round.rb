@@ -1,5 +1,8 @@
 class Round < ActiveRecord::Base
   # Remember to create a migration!
+  belongs_to :deck
+  belongs_to :user
+  has_many :guesses
 
   def guesses
     Guess.where(round_id: self.id)
@@ -13,6 +16,7 @@ class Round < ActiveRecord::Base
     (self.guesses.find_all_by_is_correct(1).size).to_f / (self.guesses.size)
   end
 
+ # def each_users_
 
 end
 

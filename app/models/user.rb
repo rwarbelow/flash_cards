@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates :password_hash, :presence => true
   validates_format_of :email, :with => /[A-Z0-9._%\-]+@(?:[A-Z0-9\-]+\.)+[A-Z]{2,4}/i, :on => :create, :message => 'email format not valid'
   has_many :rounds
+  has_many :decks, through: :rounds
+  
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
@@ -27,4 +29,11 @@ class User < ActiveRecord::Base
     @rounds_played = Round.find_all_by_user_id(self.id)
   end
 
+  def decks_played
+    @decks_played = User.find(self.id).rounds.map(&:deck).map(&:title).uniq
+  end
+
 end
+
+# To add a deck to a user's decks:
+# user.decks << Deck.find(2)

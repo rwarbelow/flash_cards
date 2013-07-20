@@ -9,23 +9,31 @@
 <h1>
   <p><%= @user.full_name %>'s Launchpad <br></p>
   <p><a href="/decks">Choose Deck to Play</a></p>
-  <table>
+  <table border="1">
+    <caption>Flash Card History</caption>
     <tr>
       <th>Deck</th>
       <th>How You Did</th>
     </tr>
-    <tr><%= Deck.find(1).title %></tr>
-    <tr><%= Round.most_recent_round_by_user_and_deck(@user.id, 2).percent_correct %></tr>
-    <tr>
-      <td></td></tr>
 
+
+   <% @user.decks.map(&:id).uniq.each do |deck_id_number| %>
   
+      <% deck = Deck.find(deck_id_number) %>
+      <% last_round_of_deck = deck.rounds.where("user_id = #{@user.id}").last %>
+      <tr>
+
+        <td>
+          <%= deck.title %>
+        </td>
+
+        <td>
+          <%= last_round_of_deck.guesses.map(&:is_correct).reduce(&:+) / last_round_of_deck.guesses.count.to_f %>
+        </td>
+
+      </tr>
+
+    <% end %>
+  </table>
 </h1>
-
-
-
-
-
-
-
 <% end %>
