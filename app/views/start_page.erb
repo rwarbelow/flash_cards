@@ -1,0 +1,22 @@
+<h1>
+  <table border="1">
+    <caption>Your Most Recent Attempt</caption>
+    <tr>
+      <th>Deck</th>
+      <th>How You Did</th>
+    </tr>
+    <% last_round_of_deck = @deck.rounds.where("user_id = #{@user.id}").last %>
+    <tr>
+      <td>
+        <%= @deck.title %>
+      </td>
+
+      <td>
+          <%= last_round_of_deck.guesses.map(&:is_correct).reduce(&:+) / last_round_of_deck.guesses.count.to_f %>
+      </td>
+
+    </tr>
+  </table>
+</h1>
+
+<h2> Push this button to begin </h2>
