@@ -1,0 +1,10 @@
+@user
+@deck
+@cards
+@card_id
+<h1><%=@deck.title%></h1>
+<h2><%=@cards[@card_id].question%></h2>
+<form action="/rounds" method="post">
+  <input type="text" name="user_input">
+  <input type="submit" value="Submit">
+  </form>

@@ -1,0 +1,12 @@
+<% if @guess.correct? %>
+<h1> You are a scholar </h1>
+<% else %>
+<h1> Fail </h1>
+<h2> Your answer: <%= @guess.user_input %></h2>
+<h2> Correct answer: <%= @guess.card.answer %></h2>
+<% end %>
+<h3><a href=<%=  "/rounds/#{session[:user_id]}/#{session[:deck_id]}/#{session[:card_id]}"%>>Next</a>
+
+
+
+

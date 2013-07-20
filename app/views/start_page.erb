@@ -1,4 +1,5 @@
 <h1>
+  <p><%= @user.full_name %></p>
   <table border="1">
     <caption>Your Most Recent Attempt</caption>
     <tr>
@@ -18,5 +19,6 @@
     </tr>
   </table>
 </h1>
+<% session[:deck_id] = @deck.id %>  
 
-<h2> Push this button to begin </h2>
+<h2><a href=<%"/rounds/#{@user.id}/#{@deck.id}/begin"%>> Push this button to begin </h2>
