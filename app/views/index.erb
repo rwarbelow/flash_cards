@@ -1,7 +1,30 @@
-
-
 <div class="container">
-  <h1>How much do you know?</h1>
-  <a href="/join">Join!</a>
-</div>
+    <div class="pure-g-r" id="layout">
+<%= erb :_nav, layout: false %>
+        <div class="pure-u-1">
+            <div class="content">
 
+                <!-- A wrapper for all the items -->
+                <div class="posts">
+                    <h1 class="content-subhead">Hello &lt;&#37; @current_user &#37;&gt; coming soon!</h1>
+
+                    <!-- A single item -->
+                    <section class="post">
+                        <header class="post-header">
+                            <img class="post-avatar" alt="Disa Johnson's avatar" src="/img/common/disa-johnson.jpg" height="48" width="48">
+
+                            <h2 class="post-title">Introducing Flash Cards by RAD</h2>
+
+                            <p class="post-meta">
+                                By <a href="#" class="post-author">Disa Johnson</a> under <a class="post-category post-category-design" href="#">Intellectual</a> <a class="post-category post-category-pure" href="#">Games</a>
+                            </p>
+                        </header>
+
+                        <div class="post-description">
+                            <p>
+                                Have a look at our game app and we welcome contructive feedback. Thank you in advance! Cheers, team RAD.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+<%= erb :_footer, layout: false %>

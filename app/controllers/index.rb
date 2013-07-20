@@ -6,5 +6,6 @@ get '/' do
 end
 
 get '/decks' do
+  @decks = Deck.all
   erb :decks
 end
