@@ -7,8 +7,19 @@
 
 
 <h1>
-  <%= @user.full_name %>
-  <%= @user.email %>
+  <p><%= @user.full_name %>'s Launchpad <br></p>
+  <p><a href="/decks">Choose Deck to Play</a></p>
+  <table>
+    <tr>
+      <th>Deck</th>
+      <th>How You Did</th>
+    </tr>
+    <tr><%= Deck.find(1).title %></tr>
+    <tr><%= Round.most_recent_round_by_user_and_deck(@user.id, 2).percent_correct %></tr>
+    <tr>
+      <td></td></tr>
+
+  
 </h1>
 
 

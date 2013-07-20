@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
       nil
     end
   end
+
+  def rounds_played
+    @rounds_played = Round.find_all_by_user_id(self.id)
+  end
+
 end

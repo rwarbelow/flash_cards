@@ -26,7 +26,6 @@ get '/user_profile/:user_id' do
     @error = "Page does not exist. Sorry, buddy... :("
     erb :user_profile
   end
-  
 end
 
 
