@@ -1,8 +1,8 @@
 get '/rounds/:user_id/:deck_id/:card_id' do
   @user = User.find(params[:user_id])
-
   @deck = Deck.find_by_id(params[:deck_id])
   @cards = @deck.cards
+
   if params[:card_id] == "begin"
     @card_id = 1
     session[:card_id] = 1
