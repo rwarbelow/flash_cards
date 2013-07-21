@@ -35,6 +35,7 @@ end
 
 get '/rounds/result/:guess_id' do
   @guess = Guess.find_by_id(params[:guess_id])
+  @deck = Deck.find_by_id(session[:deck_id])
   erb :result
 
 end
