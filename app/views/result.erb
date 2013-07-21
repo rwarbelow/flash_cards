@@ -1,14 +1,31 @@
-<% if @guess.correct? %>
-<h1> You are a scholar </h1>
-<% else %>
-<h1> Fail </h1>
-<h2> Your answer: <%= @guess.user_input %></h2>
-<h2> Correct answer: <%= @guess.card.answer %></h2>
-<% end %>
+<div class="container">
+    <div class="pure-g-r" id="layout">
+<%= erb :_nav, layout: false %>
+        <div class="pure-u-1">
+            <div class="content">
 
+                <!-- Dev Mode: Show Errors -->
+                <% if @guess.correct? %>
+                    <%= "<i class=\"icon-smile\"></i>" %>
+                <% else %>
+                    <%= "<i class=\"icon-frown\"></i>" %>
+                <% end %>
 
-<h3><a href=<%=  "/rounds/#{session[:user_id]}/#{session[:deck_id]}/#{session[:card_id]}"%>>Next</a>
+                        <table class="pure-table">
+                            <caption><%= @deck %> <%= @card %></caption>
+                            <thead>
+                                <tr>
+                                    <th>Your Answer:</th>
+                                    <th>Correct Answer:</th>
+                                </tr>
+                            </thead>
 
-
-
-
+                            <tbody>
+                                <tr>
+                                    <td><%= @guess.user_input %></td>
+                                    <td><%= @guess.card.answer %></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3><a href="/rounds/<%= session[:user_id] %>/<%= session[:deck_id] %>/<%= session[:card_id] %>">Next</a>
+<%= erb :_footer, layout: false %>
