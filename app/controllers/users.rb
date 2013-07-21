@@ -2,8 +2,6 @@ get '/join' do
   erb :create_user
 end
 
-
-
 post '/create_new_user' do
   @user = User.new(params[:user])
 
@@ -16,8 +14,6 @@ post '/create_new_user' do
   end
 end
 
-
-
 get '/user_profile/:user_id' do
   @user = User.find(params[:user_id])
   if @user.id #== current_user.id
@@ -27,6 +23,3 @@ get '/user_profile/:user_id' do
     erb :user_profile
   end
 end
-
-
-#need

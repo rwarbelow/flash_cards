@@ -1,39 +1,43 @@
-<% if @errors %>
-<p> <% @errors %> </p>
-<% else %>
+<div class="container">
+    <div class="pure-g-r" id="layout">
+<%= erb :_nav, layout: false %>
+        <div class="pure-u-1">
+            <div class="content">
+                <!-- A wrapper for all the items -->
+                <div class="posts">
+                    <% if @errors %>
+                    <p> <% @errors %> </p>
+                    <% else %>
+                    <h1 class="content-subhead"><%= @user.full_name %>'s Launchpad</h1>
+                    <p><a href="/decks">Choose Deck to Play</a></p>
 
+                        <table class="pure-table">
+                          <caption>Flash Card History</caption>
+                          <thead>
+                              <tr>
+                                <th>Deck</th>
+                                <th>How You Did</th>
+                              </tr>
+                          </thead>
 
+                          <tbody>
+                              <% @user.decks.map(&:id).uniq.each do |deck_id_number| %>
+                              <% deck = Deck.find(deck_id_number) %>
+                              <% last_round_of_deck = deck.rounds.where("user_id = #{@user.id}").last %>
+                              <tr>
+                                  <td>
+                                    <%= deck.title %>
+                                  </td>
 
+                                  <td>
+                                    <%= last_round_of_deck.guesses.map(&:is_correct).reduce(&:+) / last_round_of_deck.guesses.count.to_f %>
+                                  </td>
+                              </tr>
 
+                          <% end %>
+                          </tbody>
+                        </table>
+                      <% end %>
 
-<h1>
-  <p><%= @user.full_name %>'s Launchpad <br></p>
-  <p><a href="/decks">Choose Deck to Play</a></p>
-  <table border="1">
-    <caption>Flash Card History</caption>
-    <tr>
-      <th>Deck</th>
-      <th>How You Did</th>
-    </tr>
-
-
-   <% @user.decks.map(&:id).uniq.each do |deck_id_number| %>
-  
-      <% deck = Deck.find(deck_id_number) %>
-      <% last_round_of_deck = deck.rounds.where("user_id = #{@user.id}").last %>
-      <tr>
-
-        <td>
-          <%= deck.title %>
-        </td>
-
-        <td>
-          <%= last_round_of_deck.guesses.map(&:is_correct).reduce(&:+) / last_round_of_deck.guesses.count.to_f %>
-        </td>
-
-      </tr>
-
-    <% end %>
-  </table>
-</h1>
-<% end %>
+                </div>
+<%= erb :_footer, layout: false %>

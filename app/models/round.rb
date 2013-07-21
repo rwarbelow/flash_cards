@@ -19,6 +19,3 @@ class Round < ActiveRecord::Base
  # def each_users_
 
 end
-
-
-  
