@@ -4,10 +4,10 @@
         <div class="pure-u-1">
             <div class="content">
 
-                <% if @guess.user_input.strip != @guess.card.answer.strip %>
-                    <%= "<i class=\"icon-frown\"></i>" %>
+                <% if @guess.user_input.downcase.strip != @guess.card.answer.downcase.strip %>
+                    <%= "<i class=\"icon-frown icon-2x\"></i>" %>
                 <% else %>
-                    <%= "<i class=\"icon-smile\"></i>" %>
+                    <%= "<i class=\"icon-smile icon-2x\"></i>" %>
                 <% end %>
 
                         <table class="pure-table">
