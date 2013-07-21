@@ -4,15 +4,13 @@
         <div class="pure-u-1">
             <div class="content">
 
-                <!-- Dev Mode: Show Errors -->
-                <% if @guess.correct? %>
-                    <%= "<i class=\"icon-smile\"></i>" %>
-                <% else %>
+                <% if @guess.user_input.strip != @guess.card.answer.strip %>
                     <%= "<i class=\"icon-frown\"></i>" %>
+                <% else %>
+                    <%= "<i class=\"icon-smile\"></i>" %>
                 <% end %>
 
                         <table class="pure-table">
-                            <caption><%= @deck %> <%= @card %></caption>
                             <thead>
                                 <tr>
                                     <th>Your Answer:</th>
@@ -27,5 +25,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <h3><a href="/rounds/<%= session[:user_id] %>/<%= session[:deck_id] %>/<%= session[:card_id] %>">Next</a>
+
+                        <h3><a href="/rounds/<%= session[:deck_id] %>/<%= session[:card_id] %>">Next</a></h3>
 <%= erb :_footer, layout: false %>

@@ -19,7 +19,7 @@
                       <tbody>
                           <% @decks.each do |deck| %>
                           <tr>
-                              <td><a href="/rounds/1/<%= deck.id %>/1"><%= deck.title %></a></td>
+                              <td><a href="/rounds/<%= @user.id %>/<%= deck.id %>/1"><%= deck.title %></a></td>
                               <td><%= deck.description %></td>
                           </tr>
                           <% end %>

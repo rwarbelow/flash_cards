@@ -1,19 +1,21 @@
 enable :sessions
+# we can store @user.id in cookies so it's not in url:
+# http://guides.rubyonrails.org/v2.3.11/action_controller_overview.html#cookies
 
 get '/' do
   erb :index
-end
-
-get '/decks' do
-  @user = User.find(params[:user_id])
-  @decks = Deck.all
-  erb :decks
 end
 
 get '/decks/:user_id' do
   @user = User.find(params[:user_id])
   @decks = Deck.all
   erb :decks
+end
+
+get '/decks/:deck_id/:user_id' do
+  @deck = Deck.find_by_id(params[:deck_id])
+  @user = User.find_by_id(params[:user_id])
+  erb :start_page
 end
 
 get '/join' do
