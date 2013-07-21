@@ -13,21 +13,18 @@
 
                 <form id="add_user_form" name="create_new_user" action="/create_new_user" method="post" class="pure-form pure-form-aligned">
                     <fieldset>
-                        <legend>Login <i class="icon-signin"></i></legend>
+                        <legend>Register <i class="icon-signin"></i></legend>
 
                         <div class="pure-control-group">
-                            <input id="name" type="text" name="user[full_name]" placeholder="ie. John Doe">
-                            <label style="text-align:left;" for="name">Name</label>
+                            <input id="name" type="text" name="user[full_name]" placeholder="Name">
                         </div>
 
                         <div class="pure-control-group">
-                            <input id="email" type="email" name="user[email]" placeholder="abc@gmail.com">
-                            <label style="text-align:left;" for="email">Email</label>
+                            <input id="email" type="email" name="user[email]" placeholder="Email">
                         </div>
 
                         <div class="pure-control-group">
                             <input id="password" type="password" name="user[password_hash]" placeholder="Password">
-                            <label style="text-align:left;" for="password">Password</label>
                         </div>
 
                         <button type="submit" class="pure-button pure-button-primary">Let's go!</button>

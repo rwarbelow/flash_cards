@@ -11,10 +11,10 @@
                 <% end %>
                 <% end %>
 
-                <h1><%= @deck.title %> <i class="icon-book"></i></h1>
+                <h1><%= @deck.title %></h1>
                 <form id="rounds_form" name="rounds_form" action="/rounds" method="post" class="pure-form pure-form-aligned">
                     <fieldset>
-                        <legend><%= @cards[@card_id].question %> <i class="icon-flag"></i></legend>
+                        <legend><i class="icon-hand-right"></i> <%= @cards[@card_id].question %></legend>
 
                         <div class="pure-control-group">
                             <input type="text" name="user_input">

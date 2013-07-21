@@ -9,22 +9,22 @@
                 <nav class="nav">
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a class="pure-button" href="/"><i class="icon-home"></i> &nbsp;Home</a>
+                                                          <% if @user %>
+                                                              <% var_user = @user.id %>
+                            <a class="pure-button" href="/<%= @user.id %>"><i class="icon-home"></i> &nbsp;Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="pure-button" href="/login"><i class="icon-signin"></i> &nbsp;Signin</a>
+                            <a class="pure-button" href="/user_profile/<%= @user.id %>"><i class="icon-user"></i> &nbsp;Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="pure-button" href="/decks"><i class="icon-book"></i> &nbsp;&nbsp;Deck</a>
+                            <a class="pure-button" href="/decks/<%= @user.id %>"><i class="icon-flag-checkered"></i> &nbsp;Start Game</a>
                         </li>
+                                                          <% else %>
                         <li class="nav-item">
-                            <a class="pure-button" href="/join"><i class="icon-plus"></i> &nbsp;&nbsp;&nbsp;&nbsp;Join</a>
+                            <a class="pure-button" href="/join">Register <i class="icon-signin"></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="pure-button" href="/user_profile/1"><i class="icon-user"></i> &nbsp;Profile</a>
-                        </li>
+                                                          <% end %>
                     </ul>
                 </nav>
             </header>
         </div>
-

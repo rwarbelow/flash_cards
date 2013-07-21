@@ -6,23 +6,23 @@
 
                 <!-- A wrapper for all the items -->
                 <div class="posts">
-                    <h1 class="content-subhead">Hello @user.full_name doesn't work here yet.</h1>
+                    <h1 class="content-subhead">Hello <% if @user %>
+                                                          <%= @user.full_name %>
+                                                      <% end %></h1>
 
                     <!-- A single item -->
                     <section class="post">
                         <header class="post-header">
                             <img class="post-avatar" alt="Disa Johnson's avatar" src="/img/common/disa-johnson.jpg" height="48" width="48">
+                            <img class="post-avatar" alt="Disa Johnson's avatar" src="/img/common/abraham.jpg" height="48" width="48">
+                            <img class="post-avatar" alt="Disa Johnson's avatar" src="/img/common/rachel.jpg" height="48" width="48">
 
-                            <h2 class="post-title"><i class="icon-magic"></i> Introducing RAD</h2>
-
-                            <p class="post-meta">
-                                By <a href="#" class="post-author">Disa Johnson</a> under <a class="post-category post-category-design" href="#">Intellectual</a> <a class="post-category post-category-pure" href="#">Games</a>
-                            </p>
+                            <h2 class="post-title">Brought to you by Team RAD</h2>
                         </header>
 
                         <div class="post-description">
                             <p>
-                                Team RAD: Rachel, Abraham and Disa.
+                                Rachel, Abraham and Disa.
                             </p>
                         </div>
                     </section>
